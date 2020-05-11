@@ -1,0 +1,4 @@
+{
+	"parent": "wood-floor-justfatlard:block/floor",
+	"textures": { "wood": "block/dark_oak_planks" }
+}

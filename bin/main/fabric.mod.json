@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "wood-floor",
+	"version": "${version}",
+	"name": "wood-floor",
+	"description": "Flooring made of wood",
+	"authors": ["justfatlard"],
+	"contact": {
+		"sources": "https://github.com/fatlard1993/wood-floor"
+	},
+	"license": "MIT",
+	"icon": "assets/wood-floor-justfatlard/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": ["justfatlard.wood_floor.Main"]
+	},
+	"depends": {
+		"fabricloader": ">=0.7.4",
+		"fabric": "*",
+		"minecraft": "1.15.x"
+	},
+	"suggests": {
+		"flamingo": "*"
+	}
+}
