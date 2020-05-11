@@ -1,4 +1,0 @@
-{
-	"parent": "wood-floor-justfatlard:block/floor",
-	"textures": { "wood": "block/jungle_planks" }
-}

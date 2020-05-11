@@ -1,6 +1,0 @@
-{
-  "type": "minecraft:crafting_shaped",
-  "pattern": ["###"],
-  "key": { "#": { "item": "minecraft:spruce_slab" } },
-  "result": { "item": "wood-floor-justfatlard:spruce_floor", "count": 9 }
-}
