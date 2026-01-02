@@ -1,5 +1,6 @@
 package justfatlard.wood_floor;
 
+import eu.pb4.polymer.blocks.api.PolymerTexturedBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,15 +18,27 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
+import xyz.nucleoid.packettweaker.PacketContext;
 
-public class WoodFloor extends Block implements Waterloggable {
+public class WoodFloor extends Block implements Waterloggable, PolymerTexturedBlock {
 	public static final BooleanProperty WATERLOGGED;
 	protected static final VoxelShape SHAPE;
+
+	private BlockState polymerBlockState;
 
 	public WoodFloor(AbstractBlock.Settings settings){
 		super(settings);
 
 		this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false));
+	}
+
+	public void setPolymerBlockState(BlockState state) {
+		this.polymerBlockState = state;
+	}
+
+	@Override
+	public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
+		return this.polymerBlockState != null ? this.polymerBlockState : state;
 	}
 
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder){ builder.add(WATERLOGGED); }

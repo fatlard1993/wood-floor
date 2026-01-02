@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "wood-floor",
+	"id": "wood-floor-justfatlard",
 	"version": "${version}",
 	"name": "wood-floor",
 	"description": "Flooring made of wood",
@@ -17,7 +17,10 @@
 	"depends": {
 		"fabricloader": ">=0.18.1",
 		"fabric": "*",
-		"minecraft": "1.21.11"
+		"minecraft": "1.21.11",
+		"polymer-core": ">=0.15.0",
+		"polymer-blocks": ">=0.15.0",
+		"polymer-resource-pack": ">=0.15.0"
 	},
 	"suggests": {
 		"flamingo": "*"
