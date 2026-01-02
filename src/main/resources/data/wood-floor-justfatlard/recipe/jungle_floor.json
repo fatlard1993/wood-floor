@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["###"],
+  "key": { "#": "minecraft:jungle_slab" },
+  "result": { "id": "wood-floor-justfatlard:jungle_floor", "count": 9 }
+}

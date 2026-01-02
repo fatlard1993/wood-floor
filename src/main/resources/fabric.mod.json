@@ -15,9 +15,9 @@
 		"main": ["justfatlard.wood_floor.Main"]
 	},
 	"depends": {
-		"fabricloader": ">=0.7.4",
+		"fabricloader": ">=0.18.1",
 		"fabric": "*",
-		"minecraft": "1.15.x"
+		"minecraft": "1.21.11"
 	},
 	"suggests": {
 		"flamingo": "*"

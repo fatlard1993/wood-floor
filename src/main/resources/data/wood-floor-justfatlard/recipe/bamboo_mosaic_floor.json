@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["###"],
+  "key": { "#": "minecraft:bamboo_mosaic_slab" },
+  "result": { "id": "wood-floor-justfatlard:bamboo_mosaic_floor", "count": 9 }
+}
