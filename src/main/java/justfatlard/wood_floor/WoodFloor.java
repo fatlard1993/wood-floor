@@ -63,6 +63,6 @@ public class WoodFloor extends Block implements Waterloggable, PolymerTexturedBl
 
 	static {
 		WATERLOGGED = Properties.WATERLOGGED;
-		SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
+		SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
 	}
 }

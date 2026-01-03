@@ -68,7 +68,7 @@ public class Main implements ModInitializer {
 	private static void setupPolymerModel(String name, WoodFloor floor) {
 		Identifier modelId = Identifier.of(MOD_ID, "block/" + name);
 		BlockState polymerState = PolymerBlockResourceUtils.requestBlock(
-			BlockModelType.TRIPWIRE_BLOCK,
+			BlockModelType.TRIPWIRE_BLOCK_FLAT,
 			PolymerBlockModel.of(modelId)
 		);
 
