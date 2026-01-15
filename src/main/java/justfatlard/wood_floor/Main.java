@@ -56,6 +56,21 @@ public class Main implements ModInitializer {
 	// Pale Oak (1.21.4)
 	public static final WoodFloor PALE_OAK_FLOOR = new WoodFloor(createSettings("pale_oak_floor"));
 
+	// Log top floors - Overworld
+	public static final WoodFloor OAK_LOG_TOP_FLOOR = new WoodFloor(createSettings("oak_log_top_floor"));
+	public static final WoodFloor SPRUCE_LOG_TOP_FLOOR = new WoodFloor(createSettings("spruce_log_top_floor"));
+	public static final WoodFloor BIRCH_LOG_TOP_FLOOR = new WoodFloor(createSettings("birch_log_top_floor"));
+	public static final WoodFloor JUNGLE_LOG_TOP_FLOOR = new WoodFloor(createSettings("jungle_log_top_floor"));
+	public static final WoodFloor ACACIA_LOG_TOP_FLOOR = new WoodFloor(createSettings("acacia_log_top_floor"));
+	public static final WoodFloor DARK_OAK_LOG_TOP_FLOOR = new WoodFloor(createSettings("dark_oak_log_top_floor"));
+	public static final WoodFloor MANGROVE_LOG_TOP_FLOOR = new WoodFloor(createSettings("mangrove_log_top_floor"));
+	public static final WoodFloor CHERRY_LOG_TOP_FLOOR = new WoodFloor(createSettings("cherry_log_top_floor"));
+	public static final WoodFloor PALE_OAK_LOG_TOP_FLOOR = new WoodFloor(createSettings("pale_oak_log_top_floor"));
+
+	// Log top floors - Nether (stems)
+	public static final WoodFloor CRIMSON_STEM_TOP_FLOOR = new WoodFloor(createSettings("crimson_stem_top_floor"));
+	public static final WoodFloor WARPED_STEM_TOP_FLOOR = new WoodFloor(createSettings("warped_stem_top_floor"));
+
 	private static void register(String name, Block block){
 		Identifier id = Identifier.of(MOD_ID, name);
 
@@ -108,6 +123,21 @@ public class Main implements ModInitializer {
 		// Pale Oak (1.21.4)
 		register("pale_oak_floor", PALE_OAK_FLOOR);
 
+		// Log top floors - Overworld
+		register("oak_log_top_floor", OAK_LOG_TOP_FLOOR);
+		register("spruce_log_top_floor", SPRUCE_LOG_TOP_FLOOR);
+		register("birch_log_top_floor", BIRCH_LOG_TOP_FLOOR);
+		register("jungle_log_top_floor", JUNGLE_LOG_TOP_FLOOR);
+		register("acacia_log_top_floor", ACACIA_LOG_TOP_FLOOR);
+		register("dark_oak_log_top_floor", DARK_OAK_LOG_TOP_FLOOR);
+		register("mangrove_log_top_floor", MANGROVE_LOG_TOP_FLOOR);
+		register("cherry_log_top_floor", CHERRY_LOG_TOP_FLOOR);
+		register("pale_oak_log_top_floor", PALE_OAK_LOG_TOP_FLOOR);
+
+		// Log top floors - Nether (stems)
+		register("crimson_stem_top_floor", CRIMSON_STEM_TOP_FLOOR);
+		register("warped_stem_top_floor", WARPED_STEM_TOP_FLOOR);
+
 		// Setup Polymer models for server-side rendering
 		setupPolymerModel("acacia_floor", ACACIA_FLOOR);
 		setupPolymerModel("birch_floor", BIRCH_FLOOR);
@@ -122,6 +152,21 @@ public class Main implements ModInitializer {
 		setupPolymerModel("bamboo_floor", BAMBOO_FLOOR);
 		setupPolymerModel("bamboo_mosaic_floor", BAMBOO_MOSAIC_FLOOR);
 		setupPolymerModel("pale_oak_floor", PALE_OAK_FLOOR);
+
+		// Log top floors - Overworld
+		setupPolymerModel("oak_log_top_floor", OAK_LOG_TOP_FLOOR);
+		setupPolymerModel("spruce_log_top_floor", SPRUCE_LOG_TOP_FLOOR);
+		setupPolymerModel("birch_log_top_floor", BIRCH_LOG_TOP_FLOOR);
+		setupPolymerModel("jungle_log_top_floor", JUNGLE_LOG_TOP_FLOOR);
+		setupPolymerModel("acacia_log_top_floor", ACACIA_LOG_TOP_FLOOR);
+		setupPolymerModel("dark_oak_log_top_floor", DARK_OAK_LOG_TOP_FLOOR);
+		setupPolymerModel("mangrove_log_top_floor", MANGROVE_LOG_TOP_FLOOR);
+		setupPolymerModel("cherry_log_top_floor", CHERRY_LOG_TOP_FLOOR);
+		setupPolymerModel("pale_oak_log_top_floor", PALE_OAK_LOG_TOP_FLOOR);
+
+		// Log top floors - Nether (stems)
+		setupPolymerModel("crimson_stem_top_floor", CRIMSON_STEM_TOP_FLOOR);
+		setupPolymerModel("warped_stem_top_floor", WARPED_STEM_TOP_FLOOR);
 
 		// Create Polymer item group for wood floors (access via /polymer creative)
 		ItemGroup woodFloorGroup = PolymerItemGroupUtils.builder()
@@ -141,6 +186,18 @@ public class Main implements ModInitializer {
 				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "bamboo_mosaic_floor"))));
 				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "crimson_floor"))));
 				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "warped_floor"))));
+				// Log top floors
+				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "oak_log_top_floor"))));
+				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "spruce_log_top_floor"))));
+				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "birch_log_top_floor"))));
+				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "jungle_log_top_floor"))));
+				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "acacia_log_top_floor"))));
+				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "dark_oak_log_top_floor"))));
+				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "mangrove_log_top_floor"))));
+				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "cherry_log_top_floor"))));
+				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "pale_oak_log_top_floor"))));
+				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "crimson_stem_top_floor"))));
+				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "warped_stem_top_floor"))));
 			})
 			.build();
 		PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(MOD_ID, "wood_floors"), woodFloorGroup);

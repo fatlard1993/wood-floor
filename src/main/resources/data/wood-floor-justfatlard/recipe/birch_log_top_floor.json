@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["###"],
+  "key": { "#": "minecraft:birch_log" },
+  "result": { "id": "wood-floor-justfatlard:birch_log_top_floor", "count": 9 }
+}

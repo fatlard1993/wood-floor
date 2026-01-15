@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["###"],
+  "key": { "#": "minecraft:oak_log" },
+  "result": { "id": "wood-floor-justfatlard:oak_log_top_floor", "count": 9 }
+}

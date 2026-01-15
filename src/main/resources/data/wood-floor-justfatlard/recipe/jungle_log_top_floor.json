@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["###"],
+  "key": { "#": "minecraft:jungle_log" },
+  "result": { "id": "wood-floor-justfatlard:jungle_log_top_floor", "count": 9 }
+}
