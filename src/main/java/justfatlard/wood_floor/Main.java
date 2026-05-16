@@ -1,36 +1,34 @@
 package justfatlard.wood_floor;
 
-import eu.pb4.polymer.blocks.api.BlockModelType;
-import eu.pb4.polymer.blocks.api.PolymerBlockModel;
-import eu.pb4.polymer.blocks.api.PolymerBlockResourceUtils;
-import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
-import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
+import justfatlard.pandorical.api.BlockRegistration;
+import justfatlard.pandorical.api.ItemRegistration;
+import justfatlard.pandorical.api.PandoricalApi;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 public class Main implements ModInitializer {
 	public static final String MOD_ID = "wood-floor-justfatlard";
 
 	// Helper to create block settings with registry key
-	private static AbstractBlock.Settings createSettings(String name) {
-		RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(MOD_ID, name));
-		return AbstractBlock.Settings.create()
-			.registryKey(key)
+	private static BlockBehaviour.Properties createSettings(String name) {
+		ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MOD_ID, name));
+		return BlockBehaviour.Properties.of()
+			.setId(key)
 			.strength(2.0f, 3.0f)
-			.sounds(BlockSoundGroup.WOOD)
-			.burnable();
+			.sound(SoundType.WOOD)
+			.ignitedByLava();
 	}
 
 	// Original woods
@@ -72,33 +70,20 @@ public class Main implements ModInitializer {
 	public static final WoodFloor WARPED_STEM_TOP_FLOOR = new WoodFloor(createSettings("warped_stem_top_floor"));
 
 	private static void register(String name, Block block){
-		Identifier id = Identifier.of(MOD_ID, name);
+		Identifier id = Identifier.fromNamespaceAndPath(MOD_ID, name);
 
-		Registry.register(Registries.BLOCK, id, block);
+		Registry.register(BuiltInRegistries.BLOCK, id, block);
 
-		RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, id);
-		Registry.register(Registries.ITEM, id, new WoodFloorItem(block, new Item.Settings().registryKey(itemKey), name));
-	}
-
-	private static void setupPolymerModel(String name, WoodFloor floor) {
-		Identifier modelId = Identifier.of(MOD_ID, "block/" + name);
-		BlockState polymerState = PolymerBlockResourceUtils.requestBlock(
-			BlockModelType.TRIPWIRE_BLOCK_FLAT,
-			PolymerBlockModel.of(modelId)
-		);
-
-		if (polymerState != null) {
-			floor.setPolymerBlockState(polymerState);
-		} else {
-			System.err.println("[wood-floor] Failed to request polymer model for " + name + " - no slots available");
-		}
+		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, id);
+		Registry.register(BuiltInRegistries.ITEM, id, new WoodFloorItem(block, new Item.Properties().setId(itemKey)));
 	}
 
 	@Override
 	public void onInitialize(){
-		// Register mod assets with Polymer resource pack system
-		PolymerResourcePackUtils.addModAssets(MOD_ID);
-		PolymerResourcePackUtils.markAsRequired();
+		// Register with Pandorical if available
+		if (PandoricalApi.isAvailable()) {
+			PandoricalApi.content().registerModAssets(MOD_ID);
+		}
 
 		// Original woods
 		register("acacia_floor", ACACIA_FLOOR);
@@ -138,70 +123,60 @@ public class Main implements ModInitializer {
 		register("crimson_stem_top_floor", CRIMSON_STEM_TOP_FLOOR);
 		register("warped_stem_top_floor", WARPED_STEM_TOP_FLOOR);
 
-		// Setup Polymer models for server-side rendering
-		setupPolymerModel("acacia_floor", ACACIA_FLOOR);
-		setupPolymerModel("birch_floor", BIRCH_FLOOR);
-		setupPolymerModel("dark_oak_floor", DARK_OAK_FLOOR);
-		setupPolymerModel("jungle_floor", JUNGLE_FLOOR);
-		setupPolymerModel("oak_floor", OAK_FLOOR);
-		setupPolymerModel("spruce_floor", SPRUCE_FLOOR);
-		setupPolymerModel("crimson_floor", CRIMSON_FLOOR);
-		setupPolymerModel("warped_floor", WARPED_FLOOR);
-		setupPolymerModel("mangrove_floor", MANGROVE_FLOOR);
-		setupPolymerModel("cherry_floor", CHERRY_FLOOR);
-		setupPolymerModel("bamboo_floor", BAMBOO_FLOOR);
-		setupPolymerModel("bamboo_mosaic_floor", BAMBOO_MOSAIC_FLOOR);
-		setupPolymerModel("pale_oak_floor", PALE_OAK_FLOOR);
+		// Register Pandorical block/item models
+		if (PandoricalApi.isAvailable()) {
+			String[] allFloors = {
+				"acacia_floor", "birch_floor", "dark_oak_floor", "jungle_floor", "oak_floor", "spruce_floor",
+				"crimson_floor", "warped_floor", "mangrove_floor", "cherry_floor", "bamboo_floor", "bamboo_mosaic_floor",
+				"pale_oak_floor",
+				"oak_log_top_floor", "spruce_log_top_floor", "birch_log_top_floor", "jungle_log_top_floor",
+				"acacia_log_top_floor", "dark_oak_log_top_floor", "mangrove_log_top_floor", "cherry_log_top_floor",
+				"pale_oak_log_top_floor", "crimson_stem_top_floor", "warped_stem_top_floor"
+			};
+			for (String name : allFloors) {
+				PandoricalApi.content().registerBlock(MOD_ID + ":" + name, new BlockRegistration()
+					.model(MOD_ID + ":block/" + name));
+				PandoricalApi.content().registerItem(MOD_ID + ":" + name, new ItemRegistration()
+					.model(MOD_ID + ":item/" + name));
+			}
+		}
 
-		// Log top floors - Overworld
-		setupPolymerModel("oak_log_top_floor", OAK_LOG_TOP_FLOOR);
-		setupPolymerModel("spruce_log_top_floor", SPRUCE_LOG_TOP_FLOOR);
-		setupPolymerModel("birch_log_top_floor", BIRCH_LOG_TOP_FLOOR);
-		setupPolymerModel("jungle_log_top_floor", JUNGLE_LOG_TOP_FLOOR);
-		setupPolymerModel("acacia_log_top_floor", ACACIA_LOG_TOP_FLOOR);
-		setupPolymerModel("dark_oak_log_top_floor", DARK_OAK_LOG_TOP_FLOOR);
-		setupPolymerModel("mangrove_log_top_floor", MANGROVE_LOG_TOP_FLOOR);
-		setupPolymerModel("cherry_log_top_floor", CHERRY_LOG_TOP_FLOOR);
-		setupPolymerModel("pale_oak_log_top_floor", PALE_OAK_LOG_TOP_FLOOR);
-
-		// Log top floors - Nether (stems)
-		setupPolymerModel("crimson_stem_top_floor", CRIMSON_STEM_TOP_FLOOR);
-		setupPolymerModel("warped_stem_top_floor", WARPED_STEM_TOP_FLOOR);
-
-		// Create Polymer item group for wood floors (access via /polymer creative)
-		ItemGroup woodFloorGroup = PolymerItemGroupUtils.builder()
-			.displayName(Text.literal("Wood Floors"))
-			.icon(() -> new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "oak_floor"))))
-			.entries((context, entries) -> {
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "oak_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "spruce_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "birch_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "jungle_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "acacia_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "dark_oak_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "mangrove_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "cherry_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "pale_oak_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "bamboo_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "bamboo_mosaic_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "crimson_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "warped_floor"))));
+		// Create creative tab
+		ResourceKey<CreativeModeTab> tabKey = ResourceKey.create(
+			Registries.CREATIVE_MODE_TAB, Identifier.fromNamespaceAndPath(MOD_ID, "wood_floors"));
+		CreativeModeTab woodFloorGroup = FabricCreativeModeTab.builder()
+			.title(Component.literal("Wood Floors"))
+			.icon(() -> new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "oak_floor"))))
+			.displayItems((context, entries) -> {
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "oak_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "spruce_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "birch_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "jungle_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "acacia_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "dark_oak_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "mangrove_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "cherry_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "pale_oak_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "bamboo_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "bamboo_mosaic_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "crimson_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "warped_floor"))));
 				// Log top floors
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "oak_log_top_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "spruce_log_top_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "birch_log_top_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "jungle_log_top_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "acacia_log_top_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "dark_oak_log_top_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "mangrove_log_top_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "cherry_log_top_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "pale_oak_log_top_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "crimson_stem_top_floor"))));
-				entries.add(new ItemStack(Registries.ITEM.get(Identifier.of(MOD_ID, "warped_stem_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "oak_log_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "spruce_log_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "birch_log_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "jungle_log_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "acacia_log_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "dark_oak_log_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "mangrove_log_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "cherry_log_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "pale_oak_log_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "crimson_stem_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "warped_stem_top_floor"))));
 			})
 			.build();
-		PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(MOD_ID, "wood_floors"), woodFloorGroup);
+		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, tabKey, woodFloorGroup);
 
-		System.out.println("[wood-floor] Loaded wood-floor (server-side with Polymer)");
+		System.out.println("[wood-floor] Loaded wood-floor (server-side with Pandorical)");
 	}
 }
