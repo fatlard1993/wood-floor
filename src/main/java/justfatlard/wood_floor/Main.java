@@ -39,19 +39,19 @@ public class Main implements ModInitializer {
 	public static final WoodFloor OAK_FLOOR = new WoodFloor(createSettings("oak_floor"));
 	public static final WoodFloor SPRUCE_FLOOR = new WoodFloor(createSettings("spruce_floor"));
 
-	// Nether woods (1.16)
+	// Nether woods
 	public static final WoodFloor CRIMSON_FLOOR = new WoodFloor(createSettings("crimson_floor"));
 	public static final WoodFloor WARPED_FLOOR = new WoodFloor(createSettings("warped_floor"));
 
-	// Mangrove (1.19)
+	// Mangrove
 	public static final WoodFloor MANGROVE_FLOOR = new WoodFloor(createSettings("mangrove_floor"));
 
-	// Cherry & Bamboo (1.20)
+	// Cherry & Bamboo
 	public static final WoodFloor CHERRY_FLOOR = new WoodFloor(createSettings("cherry_floor"));
 	public static final WoodFloor BAMBOO_FLOOR = new WoodFloor(createSettings("bamboo_floor"));
 	public static final WoodFloor BAMBOO_MOSAIC_FLOOR = new WoodFloor(createSettings("bamboo_mosaic_floor"));
 
-	// Pale Oak (1.21.4)
+	// Pale Oak
 	public static final WoodFloor PALE_OAK_FLOOR = new WoodFloor(createSettings("pale_oak_floor"));
 
 	// Log top floors - Overworld
@@ -93,19 +93,19 @@ public class Main implements ModInitializer {
 		register("oak_floor", OAK_FLOOR);
 		register("spruce_floor", SPRUCE_FLOOR);
 
-		// Nether woods (1.16)
+		// Nether woods
 		register("crimson_floor", CRIMSON_FLOOR);
 		register("warped_floor", WARPED_FLOOR);
 
-		// Mangrove (1.19)
+		// Mangrove
 		register("mangrove_floor", MANGROVE_FLOOR);
 
-		// Cherry & Bamboo (1.20)
+		// Cherry & Bamboo
 		register("cherry_floor", CHERRY_FLOOR);
 		register("bamboo_floor", BAMBOO_FLOOR);
 		register("bamboo_mosaic_floor", BAMBOO_MOSAIC_FLOOR);
 
-		// Pale Oak (1.21.4)
+		// Pale Oak
 		register("pale_oak_floor", PALE_OAK_FLOOR);
 
 		// Log top floors - Overworld

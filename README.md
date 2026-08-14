@@ -1,67 +1,39 @@
 # Wood Floor
 
-A Fabric mod for Minecraft 1.21.11 that adds decorative wooden flooring blocks in all vanilla wood variants.
-
-![Minecraft 1.21.11](https://img.shields.io/badge/Minecraft-1.21.11-green)
-![Fabric](https://img.shields.io/badge/Mod%20Loader-Fabric-blue)
-![Server-Side](https://img.shields.io/badge/Server--Side-Compatible-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+A Fabric mod that adds thin, decorative wooden flooring blocks in every vanilla wood type: both a planks-based floor and a log-end ("log top") floor variant that shows the log's end grain, for interior decoration.
 
 ## Features
 
-- **13 Wood Floor Variants**: One for each vanilla wood type
-- **Flat Design**: Thin flooring blocks for interior decoration
-- **Burnable**: Like other wood blocks, floors can catch fire
+- Two flooring styles per wood type: a standard plank-textured floor and a log-end floor showing the log's cross-section texture
+- Available in all vanilla wood types, including Nether woods and Bamboo
+- Thin profile (a fraction of a full block's height) so it reads as flooring rather than a full block
+- Waterloggable
+- Burnable, like other wood blocks
+- Added to their own "Wood Floors" creative tab
 
 ### Available Floors
 
-**Overworld Woods:**
-- Oak Floor
-- Spruce Floor
-- Birch Floor
-- Jungle Floor
-- Acacia Floor
-- Dark Oak Floor
-- Mangrove Floor
-- Cherry Floor
-- Pale Oak Floor
-- Bamboo Floor
-- Bamboo Mosaic Floor
+**Plank Floors (crafted from planks):**
+Oak, Spruce, Birch, Jungle, Acacia, Dark Oak, Mangrove, Cherry, Pale Oak, Bamboo, Bamboo Mosaic, Crimson, Warped
 
-**Nether Woods:**
-- Crimson Floor
-- Warped Floor
-
-## Screenshots
-
-![Wood Floor](img.png)
+**Log Top Floors (crafted from logs/stems):**
+Oak, Spruce, Birch, Jungle, Acacia, Dark Oak, Mangrove, Cherry, Pale Oak, Crimson Stem, Warped Stem
 
 ## Crafting
 
-Craft wood floors from their corresponding planks.
-
-## Installation
-
-1. Install [Fabric Loader](https://fabricmc.net/use/) for Minecraft 1.21.11
-2. Download and install [Fabric API](https://modrinth.com/mod/fabric-api)
-3. Download the latest release of Wood Floor
-4. Place the jar file in your `mods` folder
-
-### Server-Side Installation
-
-This mod works on servers with vanilla clients! When installed on a server:
-- Vanilla clients will be prompted to download a resource pack
-- If accepted, they see custom floor textures
-- If declined, gameplay features still work
-
-Polymer is bundled with the mod - no additional downloads required.
+Plank floors are crafted from their corresponding planks. Log top floors are crafted directly from the corresponding log or stem.
 
 ## Requirements
 
-- Minecraft 1.21.11
-- Fabric Loader 0.18.1+
-- Fabric API
-- Polymer (bundled)
+Targets the Minecraft, Fabric Loader, and Fabric API versions declared in this mod's `gradle.properties`. Check there for the exact currently-supported version.
+
+## Pandorical
+
+Wood Floor is a server-side mod. If Pandorical is installed on the server, the mod uses Pandorical's content API to register its custom block/item models and sync all of its textures and assets to Pandorical clients. Pandorical must be installed client-side to see the custom flooring textures. Without it, the blocks still place and function, but a vanilla client won't have the custom appearance.
+
+## Installation
+
+Install alongside its declared dependencies (see `fabric.mod.json`).
 
 ## License
 
