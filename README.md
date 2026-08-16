@@ -29,7 +29,9 @@ Targets the Minecraft, Fabric Loader, and Fabric API versions declared in this m
 
 ## Pandorical
 
-Wood Floor is a server-side mod. If Pandorical is installed on the server, the mod uses Pandorical's content API to register its custom block/item models and sync all of its textures and assets to Pandorical clients. Pandorical must be installed client-side to see the custom flooring textures. Without it, the blocks still place and function, but a vanilla client won't have the custom appearance.
+Wood Floor runs server-side, and Pandorical is a hard dependency (`fabric.mod.json`): the server will not load this mod without it. It registers the floors' block and item models through Pandorical's content API and syncs their textures.
+
+Clients are the optional half. A player on a Pandorical client sees the flooring; a player on a vanilla client sees the blocks place and behave correctly without their custom appearance.
 
 ## Installation
 
