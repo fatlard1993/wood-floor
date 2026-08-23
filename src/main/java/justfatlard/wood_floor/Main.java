@@ -134,7 +134,13 @@ public class Main implements ModInitializer {
 				"pale_oak_log_top_floor", "crimson_stem_top_floor", "warped_stem_top_floor"
 			};
 			for (String name : allFloors) {
+				// Planks, because that is what these are: 2.0/3.0 and a wooden sound, matching
+				// createSettings above. Without a base block the client's stand-in is built from
+				// bare Properties.of() - hardness zero - so it predicts an instant break the
+				// server then refuses, and every wooden floor took the server's full two seconds
+				// while the crack overlay and block-tip's bar disagreed about how far along it was.
 				PandoricalApi.content().registerBlock(MOD_ID + ":" + name, new BlockRegistration()
+					.baseBlock("minecraft:oak_planks")
 					.model(MOD_ID + ":block/" + name));
 				PandoricalApi.content().registerItem(MOD_ID + ":" + name, new ItemRegistration()
 					.model(MOD_ID + ":item/" + name));

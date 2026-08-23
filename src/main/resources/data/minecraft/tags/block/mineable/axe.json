@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "wood-floor-justfatlard:acacia_floor",
+    "wood-floor-justfatlard:birch_floor",
+    "wood-floor-justfatlard:dark_oak_floor",
+    "wood-floor-justfatlard:jungle_floor",
+    "wood-floor-justfatlard:oak_floor",
+    "wood-floor-justfatlard:spruce_floor",
+    "wood-floor-justfatlard:crimson_floor",
+    "wood-floor-justfatlard:warped_floor",
+    "wood-floor-justfatlard:mangrove_floor",
+    "wood-floor-justfatlard:cherry_floor",
+    "wood-floor-justfatlard:bamboo_floor",
+    "wood-floor-justfatlard:bamboo_mosaic_floor",
+    "wood-floor-justfatlard:pale_oak_floor",
+    "wood-floor-justfatlard:oak_log_top_floor",
+    "wood-floor-justfatlard:spruce_log_top_floor",
+    "wood-floor-justfatlard:birch_log_top_floor",
+    "wood-floor-justfatlard:jungle_log_top_floor",
+    "wood-floor-justfatlard:acacia_log_top_floor",
+    "wood-floor-justfatlard:dark_oak_log_top_floor",
+    "wood-floor-justfatlard:mangrove_log_top_floor",
+    "wood-floor-justfatlard:cherry_log_top_floor",
+    "wood-floor-justfatlard:pale_oak_log_top_floor",
+    "wood-floor-justfatlard:crimson_stem_top_floor",
+    "wood-floor-justfatlard:warped_stem_top_floor"
+  ]
+}
