@@ -1,3 +1,13 @@
 {
-  "variants": { "": { "model": "wood-floor-justfatlard:block/mangrove_log_top_floor" } }
+  "variants": {
+    "type=bottom": {
+      "model": "wood-floor-justfatlard:block/mangrove_log_top_floor"
+    },
+    "type=top": {
+      "model": "wood-floor-justfatlard:block/mangrove_log_top_floor_top"
+    },
+    "type=double": {
+      "model": "wood-floor-justfatlard:block/mangrove_log_top_floor_double"
+    }
+  }
 }

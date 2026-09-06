@@ -25,13 +25,13 @@ Plank floors are crafted from their corresponding planks. Log top floors are cra
 
 ## Pandorical
 
-Wood Floor runs server-side, and Pandorical is a hard dependency (`fabric.mod.json`): the server will not load this mod without it. It registers the floors' block and item models through Pandorical's content API and syncs their textures.
+Wood Floor runs server-side, and Pandorical is required: the server will not load this mod without it. It registers the floors' block and item models through Pandorical's content API and syncs their textures.
 
 Clients are the optional half. A player on a Pandorical client sees the flooring; a player on a vanilla client sees the blocks place and behave correctly without their custom appearance.
 
-## Installation
+## Development
 
-Install server-side alongside its declared dependencies (see `fabric.mod.json`); connecting clients need only Pandorical. Version targets live in `gradle.properties` (Minecraft, loader, Fabric API) and `fabric.mod.json` (Java).
+Installing is in [DEVELOPMENT.md](DEVELOPMENT.md).
 
 ## License
 

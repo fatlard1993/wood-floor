@@ -1,3 +1,13 @@
 {
-  "variants": { "": { "model": "wood-floor-justfatlard:block/cherry_floor" } }
+  "variants": {
+    "type=bottom": {
+      "model": "wood-floor-justfatlard:block/cherry_floor"
+    },
+    "type=top": {
+      "model": "wood-floor-justfatlard:block/cherry_floor_top"
+    },
+    "type=double": {
+      "model": "wood-floor-justfatlard:block/cherry_floor_double"
+    }
+  }
 }
