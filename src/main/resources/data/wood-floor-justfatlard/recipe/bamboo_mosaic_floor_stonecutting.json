@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:bamboo_mosaic_slab",
+  "result": {
+    "id": "wood-floor-justfatlard:bamboo_mosaic_floor",
+    "count": 3
+  }
+}

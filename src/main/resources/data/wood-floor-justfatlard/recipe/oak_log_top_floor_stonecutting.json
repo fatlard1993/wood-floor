@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:oak_log",
+  "result": {
+    "id": "wood-floor-justfatlard:oak_log_top_floor",
+    "count": 3
+  }
+}

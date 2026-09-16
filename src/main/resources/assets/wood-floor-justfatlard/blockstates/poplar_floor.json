@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wood-floor-justfatlard:block/poplar_floor"
+    },
+    "type=top": {
+      "model": "wood-floor-justfatlard:block/poplar_floor_top"
+    },
+    "type=double": {
+      "model": "wood-floor-justfatlard:block/poplar_floor_double"
+    }
+  }
+}

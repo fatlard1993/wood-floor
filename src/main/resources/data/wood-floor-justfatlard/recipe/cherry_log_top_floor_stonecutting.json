@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:cherry_log",
+  "result": {
+    "id": "wood-floor-justfatlard:cherry_log_top_floor",
+    "count": 3
+  }
+}

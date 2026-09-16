@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:mangrove_log",
+  "result": {
+    "id": "wood-floor-justfatlard:mangrove_log_top_floor",
+    "count": 3
+  }
+}

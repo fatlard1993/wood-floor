@@ -46,5 +46,9 @@
   "item.wood-floor-justfatlard.cherry_log_top_floor": "Cherry Log Top Floor",
   "item.wood-floor-justfatlard.pale_oak_log_top_floor": "Pale Oak Log Top Floor",
   "item.wood-floor-justfatlard.crimson_stem_top_floor": "Crimson Stem Top Floor",
-  "item.wood-floor-justfatlard.warped_stem_top_floor": "Warped Stem Top Floor"
+  "item.wood-floor-justfatlard.warped_stem_top_floor": "Warped Stem Top Floor",
+  "block.wood-floor-justfatlard.poplar_floor": "Poplar Floor",
+  "block.wood-floor-justfatlard.poplar_log_top_floor": "Poplar Log Top Floor",
+  "item.wood-floor-justfatlard.poplar_floor": "Poplar Floor",
+  "item.wood-floor-justfatlard.poplar_log_top_floor": "Poplar Log Top Floor"
 }

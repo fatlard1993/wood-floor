@@ -6,22 +6,26 @@ A Fabric mod that adds thin, decorative wooden flooring blocks in every vanilla 
 
 - Two flooring styles per wood type: a standard plank-textured floor and a log-end floor showing the log's cross-section texture
 - Available in all vanilla wood types, including Nether woods and Bamboo
-- Thin profile (a fraction of a full block's height) so it reads as flooring rather than a full block
-- Waterloggable
+- Thin profile (two pixels thick) so it reads as flooring rather than a full block
+- Lies on the floor or against the ceiling, chosen by where you click, as a slab does; a second board of the same floor in the block takes the other surface, leaving the block hollow between them, and breaks for two
+- Waterloggable, whichever half the board is in; placing a second board into a block displaces its water
 - Burnable, like other wood blocks
+- Mined fastest with an axe
 - Added to their own "Wood Floors" creative tab
 
 ### Available Floors
 
-**Plank Floors (crafted from planks):**
-Oak, Spruce, Birch, Jungle, Acacia, Dark Oak, Mangrove, Cherry, Pale Oak, Bamboo, Bamboo Mosaic, Crimson, Warped
+**Plank Floors (crafted from slabs):**
+Oak, Spruce, Birch, Jungle, Acacia, Dark Oak, Mangrove, Cherry, Pale Oak, Poplar, Bamboo, Bamboo Mosaic, Crimson, Warped
 
 **Log Top Floors (crafted from logs/stems):**
-Oak, Spruce, Birch, Jungle, Acacia, Dark Oak, Mangrove, Cherry, Pale Oak, Crimson Stem, Warped Stem
+Oak, Spruce, Birch, Jungle, Acacia, Dark Oak, Mangrove, Cherry, Pale Oak, Poplar, Crimson Stem, Warped Stem
 
 ## Crafting
 
-Plank floors are crafted from their corresponding planks. Log top floors are crafted directly from the corresponding log or stem.
+Plank floors are crafted from three of their corresponding slabs in a row, for 9 floors. Log top floors are crafted from three of the corresponding log or stem in a row, for 9 floors.
+
+Every floor also cuts on the stonecutter: a slab gives 3 plank floors, a plank block (or a Bamboo Mosaic block) 6, and a log or stem 3 of its log top floor.
 
 ## Pandorical
 

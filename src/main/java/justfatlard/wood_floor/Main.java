@@ -54,6 +54,9 @@ public class Main implements ModInitializer {
 	// Pale Oak
 	public static final WoodFloor PALE_OAK_FLOOR = new WoodFloor(createSettings("pale_oak_floor"));
 
+	// Poplar
+	public static final WoodFloor POPLAR_FLOOR = new WoodFloor(createSettings("poplar_floor"));
+
 	// Log top floors - Overworld
 	public static final WoodFloor OAK_LOG_TOP_FLOOR = new WoodFloor(createSettings("oak_log_top_floor"));
 	public static final WoodFloor SPRUCE_LOG_TOP_FLOOR = new WoodFloor(createSettings("spruce_log_top_floor"));
@@ -64,6 +67,7 @@ public class Main implements ModInitializer {
 	public static final WoodFloor MANGROVE_LOG_TOP_FLOOR = new WoodFloor(createSettings("mangrove_log_top_floor"));
 	public static final WoodFloor CHERRY_LOG_TOP_FLOOR = new WoodFloor(createSettings("cherry_log_top_floor"));
 	public static final WoodFloor PALE_OAK_LOG_TOP_FLOOR = new WoodFloor(createSettings("pale_oak_log_top_floor"));
+	public static final WoodFloor POPLAR_LOG_TOP_FLOOR = new WoodFloor(createSettings("poplar_log_top_floor"));
 
 	// Log top floors - Nether (stems)
 	public static final WoodFloor CRIMSON_STEM_TOP_FLOOR = new WoodFloor(createSettings("crimson_stem_top_floor"));
@@ -73,6 +77,10 @@ public class Main implements ModInitializer {
 		Identifier id = Identifier.fromNamespaceAndPath(MOD_ID, name);
 
 		Registry.register(BuiltInRegistries.BLOCK, id, block);
+		// Burns like the planks it is cut from; the nether woods do not burn at all.
+		if (!name.startsWith("crimson") && !name.startsWith("warped")) {
+			net.fabricmc.fabric.api.registry.FlammableBlockRegistry.getDefaultInstance().add(block, 5, 20);
+		}
 
 		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, id);
 		Registry.register(BuiltInRegistries.ITEM, id, new WoodFloorItem(block, new Item.Properties().setId(itemKey)));
@@ -108,6 +116,9 @@ public class Main implements ModInitializer {
 		// Pale Oak
 		register("pale_oak_floor", PALE_OAK_FLOOR);
 
+		// Poplar
+		register("poplar_floor", POPLAR_FLOOR);
+
 		// Log top floors - Overworld
 		register("oak_log_top_floor", OAK_LOG_TOP_FLOOR);
 		register("spruce_log_top_floor", SPRUCE_LOG_TOP_FLOOR);
@@ -118,6 +129,7 @@ public class Main implements ModInitializer {
 		register("mangrove_log_top_floor", MANGROVE_LOG_TOP_FLOOR);
 		register("cherry_log_top_floor", CHERRY_LOG_TOP_FLOOR);
 		register("pale_oak_log_top_floor", PALE_OAK_LOG_TOP_FLOOR);
+		register("poplar_log_top_floor", POPLAR_LOG_TOP_FLOOR);
 
 		// Log top floors - Nether (stems)
 		register("crimson_stem_top_floor", CRIMSON_STEM_TOP_FLOOR);
@@ -128,10 +140,10 @@ public class Main implements ModInitializer {
 			String[] allFloors = {
 				"acacia_floor", "birch_floor", "dark_oak_floor", "jungle_floor", "oak_floor", "spruce_floor",
 				"crimson_floor", "warped_floor", "mangrove_floor", "cherry_floor", "bamboo_floor", "bamboo_mosaic_floor",
-				"pale_oak_floor",
+				"pale_oak_floor", "poplar_floor",
 				"oak_log_top_floor", "spruce_log_top_floor", "birch_log_top_floor", "jungle_log_top_floor",
 				"acacia_log_top_floor", "dark_oak_log_top_floor", "mangrove_log_top_floor", "cherry_log_top_floor",
-				"pale_oak_log_top_floor", "crimson_stem_top_floor", "warped_stem_top_floor"
+				"pale_oak_log_top_floor", "poplar_log_top_floor", "crimson_stem_top_floor", "warped_stem_top_floor"
 			};
 			for (String name : allFloors) {
 				// Planks, because that is what these are: 2.0/3.0 and a wooden sound, matching
@@ -163,6 +175,7 @@ public class Main implements ModInitializer {
 				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "mangrove_floor"))));
 				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "cherry_floor"))));
 				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "pale_oak_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "poplar_floor"))));
 				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "bamboo_floor"))));
 				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "bamboo_mosaic_floor"))));
 				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "crimson_floor"))));
@@ -177,6 +190,7 @@ public class Main implements ModInitializer {
 				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "mangrove_log_top_floor"))));
 				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "cherry_log_top_floor"))));
 				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "pale_oak_log_top_floor"))));
+				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "poplar_log_top_floor"))));
 				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "crimson_stem_top_floor"))));
 				entries.accept(new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath(MOD_ID, "warped_stem_top_floor"))));
 			})

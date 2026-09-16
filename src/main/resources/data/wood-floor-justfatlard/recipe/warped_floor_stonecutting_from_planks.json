@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:warped_planks",
+  "result": {
+    "id": "wood-floor-justfatlard:warped_floor",
+    "count": 6
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:acacia_planks",
+  "result": {
+    "id": "wood-floor-justfatlard:acacia_floor",
+    "count": 6
+  }
+}

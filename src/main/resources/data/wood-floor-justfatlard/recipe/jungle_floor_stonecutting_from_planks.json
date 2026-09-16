@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:jungle_planks",
+  "result": {
+    "id": "wood-floor-justfatlard:jungle_floor",
+    "count": 6
+  }
+}

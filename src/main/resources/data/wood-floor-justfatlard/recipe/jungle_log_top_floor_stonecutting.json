@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:jungle_log",
+  "result": {
+    "id": "wood-floor-justfatlard:jungle_log_top_floor",
+    "count": 3
+  }
+}

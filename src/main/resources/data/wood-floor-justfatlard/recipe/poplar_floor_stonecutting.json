@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:poplar_slab",
+  "result": {
+    "id": "wood-floor-justfatlard:poplar_floor",
+    "count": 3
+  }
+}
