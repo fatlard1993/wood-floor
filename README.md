@@ -2,6 +2,10 @@
 
 A Fabric mod that adds thin, decorative wooden flooring blocks in every vanilla wood type: both a planks-based floor and a log-end ("log top") floor variant that shows the log's end grain, for interior decoration.
 
+## Screenshots
+
+![Four floors laid side by side: plank floors and log-end floors in light and dark woods](img.png)
+
 ## Features
 
 - Two flooring styles per wood type: a standard plank-textured floor and a log-end floor showing the log's cross-section texture
