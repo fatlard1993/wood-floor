@@ -26,6 +26,17 @@ public class Main implements ModInitializer {
 		ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MOD_ID, name));
 		return BlockBehaviour.Properties.of()
 			.setId(key)
+			// Solid because it is: a board nailed to the floor. Said outright because the game
+			// works it out from the size of the collision box otherwise, and a floor two pixels
+			// thick misses the cut by one. The rule is an average of the three sides against
+			// 0.72917: a floor comes to 0.70833, a three pixel board would pass at exactly the
+			// threshold, and a slab passes easily at 0.83333.
+			//
+			// What it costs to be under it is everything that asks the game whether a block is
+			// solid before it will lean on it - an item frame or a painting will not hang on a
+			// floor, and flowing water washes it away rather than soaking into it, both of which
+			// are wrong for something you have laid down and nailed.
+			.forceSolidOn()
 			.strength(2.0f, 3.0f)
 			.sound(SoundType.WOOD)
 			.ignitedByLava();
