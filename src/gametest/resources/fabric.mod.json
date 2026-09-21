@@ -1,0 +1,18 @@
+{
+	"schemaVersion": 1,
+	"id": "wood-floor-gametest",
+	"version": "1.0.0",
+	"name": "Wood Floor smoke test",
+	"description": "Loads the mod, joins a world, and fails if anything on the way threw.",
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-client-gametest": [
+			"justfatlard.wood_floor.gametest.SmokeTest"
+		]
+	},
+	"depends": {
+		"wood-floor-justfatlard": "*",
+		"fabric-client-gametest-api-v1": "*"
+	}
+}
