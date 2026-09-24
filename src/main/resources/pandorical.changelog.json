@@ -5,17 +5,22 @@
   ],
   "versions": {
     "3.1.1": [
-      "A floor counts as solid now: paintings and item frames hang on it, and flowing water runs over it instead of washing it away."
+      "A floor counts as solid: paintings and item frames hang on it.",
+      "Flowing water runs over it instead of washing it away."
     ],
     "3.1.0": [
-      "Poplar floors, and a stonecutter recipe for every floor: a slab cuts 3, a plank block 6, a log or stem 3 of its log-end floor, so a floor no longer costs a full crafting grid.",
+      "Poplar floors, and a stonecutter recipe for every floor.",
+      "A slab cuts 3, a plank block 6, a log or stem 3 of its log-end floor.",
+      "A floor no longer costs a full crafting grid.",
       "Floors burn like the planks they came from. The nether woods still do not."
     ],
     "3.0.1": [
       "Breaking a block holding two boards gives you both of them."
     ],
     "3.0.0": [
-      "Both floor styles in every vanilla wood, nether woods and bamboo included, laid on the floor or against the ceiling by where you click, two to a block with the space hollow between them, and waterloggable in either half."
+      "Both floor styles in every vanilla wood, nether woods and bamboo included.",
+      "Laid on the floor or against the ceiling by where you click.",
+      "Two to a block with the space hollow between them, and waterloggable in either half."
     ]
   }
 }
