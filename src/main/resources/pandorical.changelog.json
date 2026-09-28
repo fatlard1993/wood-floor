@@ -4,6 +4,9 @@
     "Two pixels thick, so it reads as a floor rather than a slab."
   ],
   "versions": {
+    "3.1.2": [
+      "The mod menu icon matches the one on the download pages."
+    ],
     "3.1.1": [
       "A floor counts as solid: paintings and item frames hang on it.",
       "Flowing water runs over it instead of washing it away."
