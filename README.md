@@ -19,11 +19,9 @@ A Fabric mod that adds thin, decorative wooden flooring blocks in every vanilla 
 
 ### Available Floors
 
-**Plank Floors (crafted from slabs):**
-Oak, Spruce, Birch, Jungle, Acacia, Dark Oak, Mangrove, Cherry, Pale Oak, Poplar, Bamboo, Bamboo Mosaic, Crimson, Warped
+**Plank Floors (crafted from slabs):** Oak, Spruce, Birch, Jungle, Acacia, Dark Oak, Mangrove, Cherry, Pale Oak, Poplar, Bamboo, Bamboo Mosaic, Crimson, Warped
 
-**Log Top Floors (crafted from logs/stems):**
-Oak, Spruce, Birch, Jungle, Acacia, Dark Oak, Mangrove, Cherry, Pale Oak, Poplar, Crimson Stem, Warped Stem
+**Log Top Floors (crafted from logs/stems):** Oak, Spruce, Birch, Jungle, Acacia, Dark Oak, Mangrove, Cherry, Pale Oak, Poplar, Crimson Stem, Warped Stem
 
 ## Crafting
 
