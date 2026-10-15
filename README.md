@@ -31,9 +31,7 @@ Every floor also cuts on the stonecutter: a slab gives 3 plank floors, a plank b
 
 ## Pandorical
 
-Wood Floor runs server-side, and Pandorical is required: the server will not load this mod without it. It registers the floors' block and item models through Pandorical's content API and syncs their textures.
-
-Clients are the optional half. A player on a Pandorical client sees the flooring; a player on a vanilla client sees the blocks place and behave correctly without their custom appearance.
+Wood Floor goes on the server only, and **Pandorical is required there and on every player's client**: the floors are new blocks, and a client without Pandorical has no entry for them.
 
 ## Development
 
