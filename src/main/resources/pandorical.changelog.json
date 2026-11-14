@@ -4,6 +4,9 @@
     "Two pixels thick, so it reads as a floor rather than a slab."
   ],
   "versions": {
+    "3.1.6": [
+      "A demo to play in PvP Dimensions' onboarding."
+    ],
     "3.1.5": [
       "Drop changelog notes for changes nothing in the game shows."
     ],
