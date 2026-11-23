@@ -4,6 +4,9 @@
     "Two pixels thick, so it reads as a floor rather than a slab."
   ],
   "versions": {
+    "3.1.7": [
+      "Describes itself in one short line of what it adds."
+    ],
     "3.1.6": [
       "A demo to play in PvP Dimensions' onboarding."
     ],
