@@ -4,6 +4,9 @@
     "Two pixels thick, so it reads as a floor rather than a slab."
   ],
   "versions": {
+    "3.1.8": [
+      "Describes itself in a fuller line: thin floors in every kind of wood, as planks or as the log's end grain."
+    ],
     "3.1.7": [
       "Describes itself in one short line of what it adds."
     ],
